@@ -96,6 +96,22 @@ class EsLimeTest extends \PHPUnit\Framework\TestCase
     }
 
 
+    /**
+     * @test
+     *
+     * @author Eddie
+     */
+    public function testAggregation()
+    {
+        // TODO : ...
+//        $esLime = $this->getEsLimeClient('test', 'users');
+//
+//        $ret = $esLime
+//            ->aggregate([])
+//        ;
+
+        $this->assertTrue(true);
+    }
 
 
     /**

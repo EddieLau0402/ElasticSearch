@@ -41,6 +41,37 @@ trait Searchable
     }
 
     /**
+     * Alias of "aggregate"
+     *
+     * @author Eddie
+     *
+     * @param $aggs
+     * @return Searchable
+     */
+    public function aggs($aggs)
+    {
+        return $this->aggregate($aggs);
+    }
+
+    /**
+     * 设置聚合查询条件
+     *
+     * @author Eddie
+     *
+     * @param $aggs
+     * @return $this
+     */
+    public function aggregate($aggs)
+    {
+        if (is_array($aggs)) {
+            $this->aggs = $aggs;
+        } elseif (is_object($aggs) && $aggs instanceof \Eddie\ElasticSearch\Aggregation) {
+            $this->aggs = $aggs->format();
+        }
+        return $this;
+    }
+
+    /**
      * @param array|string $fields = ['*']
      * @return mixed
      */
