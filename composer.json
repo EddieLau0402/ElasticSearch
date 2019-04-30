@@ -1,0 +1,38 @@
+{
+    "name": "eddie/elastic-search-lime",
+    "require": {
+        "php": ">=7.0",
+        "eddie/elastic-search": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eddie Lau",
+            "email": "277676978@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Eddie\\ElasticSearchLime\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Eddie\\ElasticSearchLime\\Tests\\": "tests/"
+        }
+    },
+    "repositories": {
+        "0": {
+            "type": "vcs",
+            "url": "https://github.com/EddieLau0402/ElasticSearch.git"
+        },
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
+}
