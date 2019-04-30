@@ -91,6 +91,10 @@ $ret = $es
    ->whereLt('key', 'val')               // 小于
    ->whereLte('key', 'val')              // 小于等于
    ->whereBetween('key', ['min', 'max']) // 指定范围
+   /*
+    * "或"条件 - 在 where 前加"or"; 如: "orWhereGt", "orWhereBetween"
+    * "非"条件 - 在 where 后加"not"; 如: "whereNotGt", "whereNotBetween"
+    */
    
 
 //   TODO : 未完成   
