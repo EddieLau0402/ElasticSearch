@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace Eddie\ElasticSearchLime\Tests;
+namespace Eddie\ElasticSearch\Slim\Tests;
 
-use Eddie\ElasticSearchLime\EsLime;
+use Eddie\ElasticSearch\Slim\Es;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-class EsLimeTest extends \PHPUnit\Framework\TestCase
+class EsSlimTest extends \PHPUnit\Framework\TestCase
 {
     protected $hosts = [
         'localhost:9200'
@@ -41,7 +41,7 @@ class EsLimeTest extends \PHPUnit\Framework\TestCase
         $type = 'users';
         $esLime = $this->getEsLimeClient($index, $type);
 
-        $this->assertInstanceOf(\Eddie\ElasticSearchLime\EsLime::class, $esLime);
+        $this->assertInstanceOf(\Eddie\ElasticSearch\Slim\Es::class, $esLime);
         $this->assertEquals($esLime->getIndex(), $index);
         $this->assertEquals($esLime->getType(), $type);
     }
@@ -115,17 +115,17 @@ class EsLimeTest extends \PHPUnit\Framework\TestCase
 
 
     /**
-     * Get instance of "EsLime"
+     * Get instance of "Es"
      *
      * @author Eddie
      *
      * @param $index
      * @param $type
-     * @return EsLime
+     * @return Es
      */
-    private function getEsLimeClient($index, $type = 'doc'): EsLime
+    private function getEsLimeClient($index, $type = 'doc')
     {
-        return new EsLime([
+        return new Es([
             'hosts' => $this->hosts,
             'index' => $index,
             'type' => $type

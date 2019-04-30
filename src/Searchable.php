@@ -1,5 +1,5 @@
 <?php
-namespace Eddie\ElasticSearchLime;
+namespace Eddie\ElasticSearch\Slim;
 
 trait Searchable
 {

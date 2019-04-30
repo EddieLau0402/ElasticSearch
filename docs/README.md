@@ -10,7 +10,7 @@
 > 获取实例
 ```php
 
-$es = new \Eddie\ElasticSearchLime\EsLime([
+$es = new \Eddie\ElasticSearch\Slim\Es([
     'hosts' => [
         'localhost:9200',
         /* others... */

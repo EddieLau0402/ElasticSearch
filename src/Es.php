@@ -1,7 +1,7 @@
 <?php
-namespace Eddie\ElasticSearchLime;
+namespace Eddie\ElasticSearch\Slim;
 
-class EsLime
+class Es
 {
     use Queryable, Searchable;
 

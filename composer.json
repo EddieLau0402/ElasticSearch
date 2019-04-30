@@ -1,5 +1,5 @@
 {
-    "name": "eddie/elastic-search-lime",
+    "name": "eddie/elastic-search-slim",
     "require": {
         "php": ">=7.0",
         "eddie/elastic-search": "dev-master"
@@ -17,12 +17,12 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "Eddie\\ElasticSearchLime\\": "src/"
+            "Eddie\\ElasticSearch\\Slim\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Eddie\\ElasticSearchLime\\Tests\\": "tests/"
+            "Eddie\\ElasticSearch\\Slim\\Tests\\": "tests/"
         }
     },
     "repositories": {

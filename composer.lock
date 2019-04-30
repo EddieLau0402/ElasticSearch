@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aae6daceca777595e8c7cc3f76239b7e",
+    "content-hash": "72950331948f2ec6da3a6079df0a351e",
     "packages": [
         {
             "name": "eddie/elastic-search",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/EddieLau0402/ElasticSearch.git",
-                "reference": "52dfe5d437ccaaa93905aef50ba78d686ebd1aa5"
+                "reference": "1ddcf6093e9d94617e0898645a4614c34ff32972"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EddieLau0402/ElasticSearch/zipball/52dfe5d437ccaaa93905aef50ba78d686ebd1aa5",
-                "reference": "52dfe5d437ccaaa93905aef50ba78d686ebd1aa5",
+                "url": "https://api.github.com/repos/EddieLau0402/ElasticSearch/zipball/1ddcf6093e9d94617e0898645a4614c34ff32972",
+                "reference": "1ddcf6093e9d94617e0898645a4614c34ff32972",
                 "shasum": ""
             },
             "require": {
@@ -51,7 +51,7 @@
                 "source": "https://github.com/EddieLau0402/ElasticSearch/tree/master",
                 "issues": "https://github.com/EddieLau0402/ElasticSearch/issues"
             },
-            "time": "2019-04-30T10:09:59+00:00"
+            "time": "2019-04-30T10:30:14+00:00"
         },
         {
             "name": "elasticsearch/elasticsearch",
