@@ -97,16 +97,29 @@ $ret = $es
     */
    
   
-   ->aggregate([
-       'aggs' => [
-           'alias' => [
-               'terms' => [
-                   'field' => 'your_aggregate_field',
-                   //'size' => 10
-               ]
-           ]
-       ]
-   ])
+   // 聚合查询
+   // 方式一:
+   //->aggregate([
+   //    'aggs' => [
+   //        'alias' => [
+   //            'terms' => [
+   //                'field' => 'your_aggregate_field',
+   //                //'size' => 10
+   //            ]
+   //        ]
+   //    ]
+   //])
+   // 方式二:
+   ->aggregate(
+       (new Aggregation())
+           ->setTerms('your_aggregate_field')
+           // 最大值
+           ->addSubAgg((new Aggregation())->setMax('field', 'alias'), ['size' => 10])
+           // 最大值
+           ->addSubAgg((new Aggregation())->setMin('field', 'alias'))
+           // 平均值
+           ->addSubAgg((new Aggregation())->setAvg('field'))
+   )
    
    ->limit(10) // 获取记录条目数, 相当于"size" 
    ->skip(0)   // 偏移量, 相当于"from"
