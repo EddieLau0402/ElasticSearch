@@ -1,5 +1,7 @@
 <?php
-namespace Eddie\ElasticSearch\Slim;
+namespace Eddie\ElasticSearch;
+
+use Eddie\ElasticSearchCore\Aggregation;
 
 trait Searchable
 {
@@ -53,7 +55,7 @@ trait Searchable
     {
         if (is_array($aggs)) {
             $this->aggs = $aggs;
-        } elseif (is_object($aggs) && $aggs instanceof \Eddie\ElasticSearch\Aggregation) {
+        } elseif (is_object($aggs) && $aggs instanceof Aggregation) {
             $this->aggs = $aggs->format();
         }
         return $this;
@@ -77,7 +79,7 @@ trait Searchable
         if (!empty($this->sort)) $body['sort'] = $this->sort;
 
         if ($this->aggs) {
-            if ($this->aggs instanceof \Eddie\ElasticSearch\Aggregation) $this->aggs = $this->aggs->format();
+            if ($this->aggs instanceof Aggregation) $this->aggs = $this->aggs->format();
             $body = array_merge($body, $this->aggs);
         }
 

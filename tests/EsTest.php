@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace Eddie\ElasticSearch\Slim\Tests;
+namespace Eddie\ElasticSearch\Tests;
 
-use Eddie\ElasticSearch\Aggregation;
-use Eddie\ElasticSearch\Slim\Es;
+use Eddie\ElasticSearchCore\Aggregation;
+use Eddie\ElasticSearch\Es;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-class EsSlimTest extends \PHPUnit\Framework\TestCase
+class EsTest extends \PHPUnit\Framework\TestCase
 {
     protected $hosts = [
         'localhost:9200'
@@ -42,7 +42,7 @@ class EsSlimTest extends \PHPUnit\Framework\TestCase
         $type = 'users';
         $esLime = $this->getEsLimeClient($index, $type);
 
-        $this->assertInstanceOf(\Eddie\ElasticSearch\Slim\Es::class, $esLime);
+        $this->assertInstanceOf(\Eddie\ElasticSearch\Es::class, $esLime);
         $this->assertEquals($esLime->getIndex(), $index);
         $this->assertEquals($esLime->getType(), $type);
     }

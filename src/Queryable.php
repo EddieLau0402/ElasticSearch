@@ -1,5 +1,5 @@
 <?php
-namespace Eddie\ElasticSearch\Slim;
+namespace Eddie\ElasticSearch;
 
 trait Queryable
 {
@@ -22,7 +22,7 @@ trait Queryable
     protected function getQuery()
     {
         if (empty($this->query)) {
-            $this->query = new \Eddie\ElasticSearch\Query();
+            $this->query = new \Eddie\ElasticSearchCore\Query();
         }
         return $this->query;
     }

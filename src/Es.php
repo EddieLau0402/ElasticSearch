@@ -1,5 +1,5 @@
 <?php
-namespace Eddie\ElasticSearch\Slim;
+namespace Eddie\ElasticSearch;
 
 class Es
 {
