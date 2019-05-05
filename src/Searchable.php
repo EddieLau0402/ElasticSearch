@@ -40,18 +40,6 @@ trait Searchable
         return $this->setFrom($offset);
     }
 
-    /**
-     * Alias of "aggregate"
-     *
-     * @author Eddie
-     *
-     * @param $aggs
-     * @return Searchable
-     */
-    public function aggs($aggs)
-    {
-        return $this->aggregate($aggs);
-    }
 
     /**
      * 设置聚合查询条件
@@ -87,6 +75,11 @@ trait Searchable
         if (!empty($this->source)) $body['_source'] = $this->source;
 
         if (!empty($this->sort)) $body['sort'] = $this->sort;
+
+        if ($this->aggs) {
+            if ($this->aggs instanceof \Eddie\ElasticSearch\Aggregation) $this->aggs = $this->aggs->format();
+            $body = array_merge($body, $this->aggs);
+        }
 
         // Execute search
         return $this->client->search([

@@ -103,14 +103,27 @@ class EsSlimTest extends \PHPUnit\Framework\TestCase
      */
     public function testAggregation()
     {
-        // TODO : ...
-//        $esLime = $this->getEsLimeClient('test', 'users');
-//
-//        $ret = $esLime
-//            ->aggregate([])
-//        ;
+        $esLime = $this->getEsLimeClient('test', 'users');
 
-        $this->assertTrue(true);
+        $groupField = 'group_by_gender';
+        $ret = $esLime
+            ->aggregate([
+                'aggs' => [
+                    $groupField => [
+                        'terms' => [
+                            'field' => 'gender.keyword',
+                            'size' => 10
+                        ]
+                    ]
+                ]
+            ])
+            ->limit(0)
+            ->get()
+        ;
+
+        $this->assertArrayHasKey('aggregations',$ret);
+        $this->assertArrayHasKey($groupField, $ret['aggregations']);
+        $this->assertGreaterThanOrEqual(0, $ret['aggregations'][$groupField]['buckets']);
     }
 
 

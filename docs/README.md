@@ -96,12 +96,17 @@ $ret = $es
     * "非"条件 - 在 where 后加"not"; 如: "whereNotGt", "whereNotBetween"
     */
    
-
-//   TODO : 未完成   
-//   ->aggregate([
-//       // 聚合查询条件
-//   ])
-//   //->aggs([]) // 方法"aggregate" 的别名
+  
+   ->aggregate([
+       'aggs' => [
+           'alias' => [
+               'terms' => [
+                   'field' => 'your_aggregate_field',
+                   //'size' => 10
+               ]
+           ]
+       ]
+   ])
    
    ->limit(10) // 获取记录条目数, 相当于"size" 
    ->skip(0)   // 偏移量, 相当于"from"
