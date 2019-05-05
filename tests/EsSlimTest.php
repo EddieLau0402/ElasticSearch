@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Eddie\ElasticSearch\Slim\Tests;
 
+use Eddie\ElasticSearch\Aggregation;
 use Eddie\ElasticSearch\Slim\Es;
 
 require_once __DIR__.'/../vendor/autoload.php';
@@ -107,16 +108,23 @@ class EsSlimTest extends \PHPUnit\Framework\TestCase
 
         $groupField = 'group_by_gender';
         $ret = $esLime
-            ->aggregate([
-                'aggs' => [
-                    $groupField => [
-                        'terms' => [
-                            'field' => 'gender.keyword',
-                            'size' => 10
-                        ]
-                    ]
-                ]
-            ])
+//            ->aggregate([
+//                'aggs' => [
+//                    $groupField => [
+//                        'terms' => [
+//                            'field' => 'gender.keyword',
+//                            'size' => 10
+//                        ]
+//                    ]
+//                ]
+//            ])
+            ->aggregate(
+                (new Aggregation())
+                    ->setTerms('gender.keyword', $groupField)
+                    ->addSubAgg((new Aggregation())->setMax('age', 'max_age'), ['size' => 10])
+                    ->addSubAgg((new Aggregation())->setMin('age', 'min_age'))
+                    ->addSubAgg((new Aggregation())->setAvg('age'))
+            )
             ->limit(0)
             ->get()
         ;
@@ -125,6 +133,7 @@ class EsSlimTest extends \PHPUnit\Framework\TestCase
         $this->assertArrayHasKey($groupField, $ret['aggregations']);
         $this->assertGreaterThanOrEqual(0, $ret['aggregations'][$groupField]['buckets']);
     }
+
 
 
     /**
