@@ -132,6 +132,12 @@ class EsSlimTest extends \PHPUnit\Framework\TestCase
         $this->assertArrayHasKey('aggregations',$ret);
         $this->assertArrayHasKey($groupField, $ret['aggregations']);
         $this->assertGreaterThanOrEqual(0, $ret['aggregations'][$groupField]['buckets']);
+
+        if ( $ret['aggregations'][$groupField]['buckets'] ?? 0 > 0 ) {
+            $this->assertArrayHasKey('max_age', $ret['aggregations'][$groupField]['buckets'][0]);
+            $this->assertArrayHasKey('min_age', $ret['aggregations'][$groupField]['buckets'][0]);
+            $this->assertArrayHasKey('avg_age', $ret['aggregations'][$groupField]['buckets'][0]);
+        }
     }
 
 
