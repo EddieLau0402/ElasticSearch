@@ -19,6 +19,11 @@ trait Queryable
         return false;
     }
 
+    public function getQueryParam()
+    {
+        return ['query' => $this->getQuery()->format()];
+    }
+
     protected function getQuery()
     {
         if (empty($this->query)) {

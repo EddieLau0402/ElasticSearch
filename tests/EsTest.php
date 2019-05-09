@@ -40,11 +40,11 @@ class EsTest extends \PHPUnit\Framework\TestCase
     {
         $index = 'test';
         $type = 'users';
-        $esLime = $this->getEsLimeClient($index, $type);
+        $es = $this->getEsLimeClient($index, $type);
 
-        $this->assertInstanceOf(\Eddie\ElasticSearch\Es::class, $esLime);
-        $this->assertEquals($esLime->getIndex(), $index);
-        $this->assertEquals($esLime->getType(), $type);
+        $this->assertInstanceOf(\Eddie\ElasticSearch\Es::class, $es);
+        $this->assertEquals($es->getIndex(), $index);
+        $this->assertEquals($es->getType(), $type);
     }
 
     /**
@@ -54,11 +54,11 @@ class EsTest extends \PHPUnit\Framework\TestCase
      */
     public function testDocument()
     {
-        $esLime = $this->getEsLimeClient('test', 'users');
+        $es = $this->getEsLimeClient('test', 'users');
 
         // Create document
         $docId = 'test-user-'.time();
-        $ret = $esLime->createDocument([
+        $ret = $es->createDocument([
             'id' => $docId,
             'name' => 'Bob',
             'gender' => 'male',
@@ -67,11 +67,11 @@ class EsTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($docId, $ret['_id']);
 
         // Get document
-        $ret = $esLime->getDocument($docId);
+        $ret = $es->getDocument($docId);
         $this->assertTrue($ret['found']);
 
         // Delete document
-        $ret = $esLime->deleteDocument($docId);
+        $ret = $es->deleteDocument($docId);
         $this->assertTrue(!!$ret['_shards']['successful']);
     }
 
@@ -83,8 +83,8 @@ class EsTest extends \PHPUnit\Framework\TestCase
      */
     public function testQuery()
     {
-        $esLime = $this->getEsLimeClient('test', 'users');
-        $ret = $esLime
+        $es = $this->getEsLimeClient('test', 'users');
+        $ret = $es
             ->where('name.keyword', 'Bob')
             ->whereBetween('age', [15, 20])
             ->get(['name', 'age'])
@@ -95,6 +95,26 @@ class EsTest extends \PHPUnit\Framework\TestCase
 
     }
 
+    /**
+     * @test
+     *
+     * @author Eddie
+     */
+    public function testFlushQueryCondition()
+    {
+        $es = $this->getEsLimeClient('test', 'users');
+        $es
+            ->where('name.keyword', 'Bob')
+            ->whereBetween('age', [15, 20])
+        ;
+
+        $this->assertNotEmpty($es->getQueryParam()['query']['bool']['must']);
+
+        $es->flush();
+
+        $this->assertEmpty($es->getQueryParam()['query']['bool']['must']);
+    }
+
 
     /**
      * @test
@@ -103,12 +123,12 @@ class EsTest extends \PHPUnit\Framework\TestCase
      */
     public function testAggregation()
     {
-        $esLime = $this->getEsLimeClient('test', 'users');
+        $es = $this->getEsLimeClient('test', 'users');
 
         $groupField = 'group_by_gender';
 
         try {
-            $ret = $esLime
+            $ret = $es
 //                ->aggregate([
 //                    'aggs' => [
 //                        $groupField => [
