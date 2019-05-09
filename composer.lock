@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/EddieLau0402/ElasticSearch-Core.git",
-                "reference": "d91eb33c965236efa0ec40d179ad4eff7f7ee5f1"
+                "reference": "759981cb8d57831b8fabf9e5c83e4666ddf24ac5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EddieLau0402/ElasticSearch-Core/zipball/d91eb33c965236efa0ec40d179ad4eff7f7ee5f1",
-                "reference": "d91eb33c965236efa0ec40d179ad4eff7f7ee5f1",
+                "url": "https://api.github.com/repos/EddieLau0402/ElasticSearch-Core/zipball/759981cb8d57831b8fabf9e5c83e4666ddf24ac5",
+                "reference": "759981cb8d57831b8fabf9e5c83e4666ddf24ac5",
                 "shasum": ""
             },
             "require": {
@@ -51,7 +51,7 @@
                 "source": "https://github.com/EddieLau0402/ElasticSearch-Core/tree/master",
                 "issues": "https://github.com/EddieLau0402/ElasticSearch-Core/issues"
             },
-            "time": "2019-05-05T07:40:07+00:00"
+            "time": "2019-05-09T03:44:15+00:00"
         },
         {
             "name": "elasticsearch/elasticsearch",
@@ -1096,12 +1096,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "1f66fc130ca72a955b3294805ff73abdb6a45a53"
+                "reference": "e19a9c83ca5af3efb41019e4770585a7f8984a2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1f66fc130ca72a955b3294805ff73abdb6a45a53",
-                "reference": "1f66fc130ca72a955b3294805ff73abdb6a45a53",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e19a9c83ca5af3efb41019e4770585a7f8984a2b",
+                "reference": "e19a9c83ca5af3efb41019e4770585a7f8984a2b",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1178,7 +1178,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-04-27T16:17:15+00:00"
+            "time": "2019-05-06T07:54:54+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1369,12 +1369,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "3d1521011cf810bf1cd7a10403f34156bb82fa7f"
+                "reference": "f2a2c8e1c97c11ace607a7a667d73d47c19fe404"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/3d1521011cf810bf1cd7a10403f34156bb82fa7f",
-                "reference": "3d1521011cf810bf1cd7a10403f34156bb82fa7f",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/f2a2c8e1c97c11ace607a7a667d73d47c19fe404",
+                "reference": "f2a2c8e1c97c11ace607a7a667d73d47c19fe404",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1420,7 +1420,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2019-04-28T11:57:00+00:00"
+            "time": "2019-05-05T09:05:15+00:00"
         },
         {
             "name": "sebastian/exporter",
