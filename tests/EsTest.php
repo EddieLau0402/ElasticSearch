@@ -169,6 +169,29 @@ class EsTest extends \PHPUnit\Framework\TestCase
     }
 
 
+    /**
+     * @test
+     *
+     * @author Eddie
+     */
+    public function testExistsIndex()
+    {
+        //$es = $this->getEsLimeClient('test', 'users');
+        $es = new Es([
+            'hosts' => $this->hosts,
+            //'index' => $index,
+            //'type' => $type
+        ]);;
+
+        $existsIndex = 'test';
+        $ret = $es->existsIndex($existsIndex);
+        $this->assertTrue($ret);
+
+        $notExistsIndex = 'abc123';
+        $ret = $es->existsIndex($notExistsIndex);
+        $this->assertFalse($ret);
+    }
+
 
     /**
      * Get instance of "Es"

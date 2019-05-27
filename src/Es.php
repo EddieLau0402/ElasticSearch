@@ -70,6 +70,20 @@ class Es
     }
 
     /**
+     * 索引是否存在
+     *
+     * @author Eddie
+     *
+     * @param string $index
+     * @return  bool
+     */
+    public function existsIndex(string $index = '')
+    {
+        if (empty($index)) $index = $this->index;
+        return $this->client->indices()->exists(['index' => $index]);
+    }
+
+    /**
      * 删除索引
      *
      * @author Eddie

@@ -50,6 +50,9 @@ $ret = $es->createIndex('your_index');
 /* 删除索引 */
 $ret = $es->deleteIndex('your_index');
 
+/* 索引是否存在 */
+$ret = $es->existsIndex('your_index'); // true|false
+
 ```
 
 > 文档操作
