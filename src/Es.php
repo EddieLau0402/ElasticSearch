@@ -79,7 +79,7 @@ class Es
      */
     public function deleteIndex(string $index = '')
     {
-        $index = empty($index)? $index : $this->index;
+        if (empty($index)) $index = $this->index;
 
         $rep = $this->client->indices()->delete(['index' => $index]);
         $ret = !!$rep['acknowledged'];
