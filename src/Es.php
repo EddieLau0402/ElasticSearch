@@ -141,7 +141,7 @@ class Es
             'index' => $this->getIndex(),
             'type' => $this->getType(),
             'id' => $id,
-            'body' => $data
+            'body' => ['doc' => $data]
         ]);
     }
 
