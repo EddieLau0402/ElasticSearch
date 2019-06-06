@@ -127,6 +127,25 @@ class Es
     }
 
     /**
+     * 修改一个文档
+     *
+     * @author Eddie
+     *
+     * @param $id
+     * @param $data
+     * @return array
+     */
+    public function updateDocument($id, array $data)
+    {
+        return $this->client->update([
+            'index' => $this->getIndex(),
+            'type' => $this->getType(),
+            'id' => $id,
+            'body' => $data
+        ]);
+    }
+
+    /**
      * 删除一个文档
      *
      * @author Eddie
