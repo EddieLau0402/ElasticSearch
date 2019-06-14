@@ -98,6 +98,15 @@ $ret = $es
     * "或"条件 - 在 where 前加"or"; 如: "orWhereGt", "orWhereBetween"
     * "非"条件 - 在 where 后加"not"; 如: "whereNotGt", "whereNotBetween"
     */
+    
+   ->whereHas('key')     // 包含某字段
+   ->orWhereHas('key')   // 包含某字段("或"条件)
+   ->whereNotHas('key')  // 不包含某字段
+   
+   // 可以传入数组, 表示包含多字段;
+   ->whereHas(['key1', 'key2', '...'])
+   ->orWhereHas(['key1', 'key2', '...'])
+   ->whereNotHas(['key1', 'key2', '...'])
    
   
    // 聚合查询
