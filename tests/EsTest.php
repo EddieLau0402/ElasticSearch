@@ -192,6 +192,19 @@ class EsTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($ret);
     }
 
+    public function testQueryWithWhereHas()
+    {
+        $es = $this->getEsLimeClient('data-center_page_logs');
+
+        $ret = $es
+            ->whereHas('wx_group')
+            ->limit(0)
+            ->get()
+        ;
+
+        $this->assertArrayHasKey('hits', $ret['hits']);
+        $this->assertGreaterThanOrEqual(0, $ret['hits']['total']); // found OR empty
+    }
 
     /**
      * Get instance of "Es"

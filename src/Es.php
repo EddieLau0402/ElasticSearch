@@ -186,7 +186,6 @@ class Es
             call_user_func_array([$this->getQuery(), $method], $args);
             return $this;
         } else {
-
             switch (strtolower($method)) {
                 case 'wheregt':
                 case 'wheregte':
@@ -203,9 +202,9 @@ class Es
                 case 'wherenotlt':
                 case 'wherenotlte':
                 case 'wherenotbetween':
-                case 'whereHas':
-                case 'whereNotHas':
-                case 'orWhereHas':
+                case 'wherehas':
+                case 'wherenothas':
+                case 'orwherehas':
                     call_user_func_array([$this->getQuery(), $method], $args);
                     return $this;
                     break;
