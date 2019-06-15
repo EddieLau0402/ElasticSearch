@@ -203,6 +203,9 @@ class Es
                 case 'wherenotlt':
                 case 'wherenotlte':
                 case 'wherenotbetween':
+                case 'whereHas':
+                case 'whereNotHas':
+                case 'orWhereHas':
                     call_user_func_array([$this->getQuery(), $method], $args);
                     return $this;
                     break;
